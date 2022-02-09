@@ -1,3 +1,6 @@
+# data types function
+
+
 def question(answer, question, condition):
     while True:
         try:
@@ -8,3 +11,6 @@ def question(answer, question, condition):
         except ValueError:
             print(error)
             print("")
+
+
+# data types program running
