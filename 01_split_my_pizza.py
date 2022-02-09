@@ -1,29 +1,26 @@
-# variables are defined
+# pizza question function
 
-pizza_slices = ""
-people_sharing = ""
 
-#
+def pizza(question, error):
+    valid = True
+    while valid:
+        try:
+            print("")
+            answer = int(input(question))
+            valid = True
+            return answer
+        except ValueError:
+            print("")
+            print(error)
 
-while not pizza_slices.isdigit():
-    try:
-        pizza_slices = int(input("How many slices of pizza?"))
-        print("")
-    except ValueError:
-        print("")
-        print("You must enter a whole number")
 
-#
+# this list should be both of the questions (how many slices of pizza and how many are sharing)
 
-while not people_sharing.isdigit():
-    try:
-        people_sharing = int(input("How many people are sharing the pizza?"))
-        print("")
-    except ValueError:
-        print("You must enter a whole number")
-        print("")
-#
+pizza_questions = [pizza("How many slices of pizza", "You must enter a whole number"),
+                   pizza("How many people are sharing", "You must enter a whole number")]
 
-print("There'll be {} slices each per person".format(pizza_slices//people_sharing))
+# this should reveal how many slices each and how many slices are left over
 
-print("There'll be {} slices remaining".format(pizza_slices % people_sharing))
+print("There'll be {} slices each per person".format(pizza_questions[0] // pizza_questions[1]))
+
+print("There'll be {} slices remaining".format(pizza_questions[0] % pizza_questions[1]))
