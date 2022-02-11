@@ -18,6 +18,20 @@ def data_types(question, condition, error):
 
 # data types program running
 
+response = ["", ""]
+
 questions = [data_types(input("What's your name?").strip(), "", "You must enter something other than pressing enter key"),
-             data_types(int(input("How old are you?")), "", "You must enter your age in numbers"),
              data_types(input("What's your favorite animal?").strip(), "", "You must enter something other than pressing enter key")]
+
+while True:
+    try:
+        response[1] = int(input())
+        print("")
+        if response[1] >= 0:
+            return response
+        else:
+            print("You must enter a valid age")
+            print("")
+    except ValueError:
+        print("You must enter a valid age")
+        print("")
