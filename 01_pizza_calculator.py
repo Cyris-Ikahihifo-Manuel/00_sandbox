@@ -8,7 +8,7 @@ pizza_arrays = [["thick", "thin"], ["8", "10", "12", "14", "18"], ["yes", "no", 
                 ["Margherita", "Vegetable", "Vegan", "Hawaiian", "Meat Feast"]]
 
 for i in range(5):
-    pizza_list.append("")
+    pizza_list.append(0)
 
 # this function should ask a question and return the input and reiterate itself until the user has input a answer within
 # the parameters
