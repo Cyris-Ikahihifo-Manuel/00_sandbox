@@ -1,55 +1,95 @@
-# this list should count as all the options of the pizza with the final index being the total cost and the array
-# should be the parameters in the code
+# this list will count as the questions, the cost and the voucher code
 
-code = 0
-total_cost = 0
-pizza_list = []
-pizza_arrays = [["thick", "thin"], ["8", "10", "12", "14", "18"], ["yes", "no", "y", "n"],
-                ["Margherita", "Vegetable", "Vegan", "Hawaiian", "Meat Feast"]]
+
+pizzas = []
+
+
+# this creates the items in the list
+
 
 for i in range(5):
-    pizza_list.append(0)
-
-# this function should ask a question and return the input and reiterate itself until the user has input a answer within
-# the parameters
+    pizzas.append("")
+pizzas.append(0)
 
 
-def pizza(answer, question, parameter, error):
-    while False:
-        try:
-            answer = question
-            print("")
-            if answer in parameter:
-                return answer
-            else:
-                print(error)
-                print("")
-        except ValueError:
-            print(error)
-            print("")
+# error function (i got too lazy for the pizza question functions)
 
 
-# running the program
+def error(message):
+    print("Error, {}".format(message))
+    print("")
 
-pizza_list[0] = pizza(pizza_list[0], input("Would you like a thick or thin crust").lower(), pizza_arrays[0], "Error, enter either thick or thin")
-if pizza_list[0] == "thick":
-    total_cost += 10
-else:
-    total_cost += 8
-pizza_list[1] = pizza(pizza_list[1], int(input("Pick a pizza size from 8, 10, 12, 14 or 18 inches")), pizza_arrays[1], "Error, enter either 8, 10, 12, 14 or 18")
-if 10 < pizza_list[1] <= 18:
-    total_cost += 2
-pizza_list[2] = pizza(pizza_list[2], input("Would you like cheese with your pizza Y/N".lower()), pizza_arrays[2], "would you like cheese with your pizza or not")
-pizza_list[3] = pizza(pizza_list[3], input("Which pizza type would you like? Margherita, Vegetable, Vegan, Hawaiian or Meat Feast")
-                      .lower().title(), pizza_arrays[3], "Error, either Margherita, Vegetable, Vegan, Hawaiian or Meat Feast")
-if pizza_list[3] == "Vegetable" or pizza_list[3] == "Vegan":
-    total_cost += 1
-elif pizza_list[3] == "Hawaiian" or pizza_list[3] == "Meat Feast":
-    total_cost += 2
 
-while code != "FunFriday" or code != "":
-    code = input("""If you have a voucher code, enter it now
-Press enter to skip""").strip()
+# program running
 
-if code == "FunFriday":
-    total_cost -= 2
+
+while True:
+    pizzas[0] = input("Would you like thin or thick crust?").lower().strip()
+    print("")
+    if pizzas[0] == "thin":
+        pizzas[5] += 8
+        break
+    elif pizzas[0] == "thick":
+        pizzas[5] += 10
+        break
+    else:
+        error("would you like either thin or thick crust")
+
+
+while True:
+    try:
+        pizzas[1] = int(input("Pick a pizza size from 8, 10, 12, 14 or 18 inches"))
+        print("")
+        if pizzas[1] == 8 or pizzas[1] == 10:
+            break
+        elif pizzas[1] == 12 or pizzas[1] == 14 or pizzas[1] == 18:
+            pizzas[5] += 2
+            break
+        else:
+            error("pick a size from 8, 10, 12, 14 or 18 inches")
+    except ValueError:
+        error("pick a size from 8, 10, 12, 14 or 18 inches")
+
+
+while True:
+    try:
+        pizzas[2] = input("Would you like cheese with your pizza? Y/N").lower().strip()
+        print("")
+        if pizzas[2] == "yes" or pizzas[2] == "y":
+            pizzas[2] = "cheese"
+            break
+        elif pizzas[2] == "no" or pizzas[2] == "n":
+            pizzas[2] = "no cheese"
+            pizzas[5] -= 0.5
+            break
+        else:
+            error("enter either Y or N")
+    except ValueError:
+        error("enter either Y or N")
+
+
+while True:
+    try:
+        pizzas[3] = input("Which pizza type would you like? Margherita, Vegetable, Vegan, Hawaiian or Meat Feast")\
+            .lower().strip()
+        print("")
+        if pizzas[3] == "vegetable" or pizzas[3] == "vegan":
+            pizzas[5] += 1
+            break
+        elif pizzas[3] == "hawaiian" or pizzas[3] == "meat feast":
+            pizzas[5] += 2
+            break
+        else:
+            error("enter either Margherita, Vegetable, Vegan, Hawaiian or Meat Feast")
+    except ValueError:
+        error("enter either Margherita, Vegetable, Vegan, Hawaiian or Meat Feast")
+
+
+while not pizzas[4] == "FunFriday" or pizzas[4] == "":
+    pizzas[4] = input("If you have a voucher code, enter it now. Press enter to skip").strip()
+    print("")
+
+if pizzas[4] == "FunFriday":
+    pizzas[5] -= 2
+
+print("Your {} crust {} inch {} pizza with {} will cost ${}".format(pizzas[0], pizzas[1], pizzas[3], pizzas[2], pizzas[5]))
