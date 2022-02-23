@@ -9,12 +9,35 @@ guesses = []
 for i in range(5):
     guesses.append(0)
 
+def num_Q(question, condition):
+    while True:
+        try:
+            variable = question
+            print("")
+            if variable > condition:
+                return variable
+        except ValueError:
+            print("Error, enter a positive whole number")
+            print("")
+
 
 # this is the number being guessed, with guesses[2] and guesses[3] being the boundaries that the number being randomised within
 
 
-guesses[2] = 1
-guesses[3] = 10
+num_Q(int(input("Enter any positive whole number")), 1)
+
+
+while True:
+    try:
+        guesses[3] = int(input("Enter a positive whole number greater than ", guesses[2]))
+        print("")
+        if guesses[3] > guesses[2]:
+            break
+    except ValueError:
+        print("Error, enter a positive whole number")
+        print("")
+
+
 guesses[4] = random.randint(guesses[2], guesses[3])
 
 print("The answer is ", guesses[4])
@@ -26,7 +49,7 @@ print("")
 
 while True:
     try:
-        guesses[0] = int(input("Guess a number between {} and {}".format(guesses[2], guesses[3])))
+        guesses[0] = int(input("Guess any number between {} and {}".format(guesses[2], guesses[3])))
         print("")
         guesses[1] += 1
         if guesses[0] < guesses[2] or guesses[0] > guesses[3]:
@@ -35,7 +58,7 @@ while True:
         if guesses[1] == 3 or guesses[0] == guesses[4]:
             break
     except ValueError:
-        print("Error, enter a whole number between {} and {}".format(guesses[2], guesses[3]))
+        print("Error, enter a positive whole number")
         print("")
 
 
