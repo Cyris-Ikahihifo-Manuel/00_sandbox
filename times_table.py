@@ -14,10 +14,11 @@ while True:
         print("")
         text("Please enter a number")
         for i in range(1, 12):
-            print("{}. {} x {} = {}".format(i, i, times_table, i * times_table))
+            print("{}. {} x {} = {:.2f}".format(i, i, times_table, i * times_table))
             i += 1
     except ValueError:
-        if times_table != "d":
+        times_table = times_table.str()
+        if times_table == "d":
             text("Please enter a number")
         else:
             break
