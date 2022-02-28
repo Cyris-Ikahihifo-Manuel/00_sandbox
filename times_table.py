@@ -18,8 +18,7 @@ max_value = times_table = 0
 
 while True:
     try:
-        times_table = float(input("""What number's times table would you like to see
-        enter 'd' if you're finished"""))
+        times_table = float(input("What number's times table would you like to see enter 'd' if you're finished"))
         print("")
         while max_value <= 1:
             try:
