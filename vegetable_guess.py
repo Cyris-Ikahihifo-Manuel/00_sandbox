@@ -35,9 +35,9 @@ answer = question("Is your vegetable green?")
 if answer == "yes":
     answer = question("Does the vegetable look like a tree?")
     if answer == "yes":
-        text("It must be Peas!")
-    else:
         text("It must be Broccoli!")
+    else:
+        text("It must be Peas!")
 else:
    answer = question("Is your vegetable orange?")
    if answer == "yes":
