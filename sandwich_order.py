@@ -8,6 +8,28 @@ for i in range(6):
 sandwich_list.append(0)
 
 
+# sandwich order function one when there's only two decisions
+
+
+def order(response, question, ans1, ans2):
+    while True:
+        if response != ans1 or response != ans2:
+            response = input(question).lower().strip()
+        else:
+            return response
+
+
+# sandwich order for when there are three options
+
+
+def order2(response, question, ans1, ans2, ans3):
+    while True:
+        if response != ans1 or response != ans2 or response != ans3:
+            response = input(question).lower().strip()
+        else:
+            return response
+
+
 # This asks the user what their meal is (asks the user for an input) the while statements are there to be as parameters
 # and are also there to reiterate until the user has input something within the parameters
 
