@@ -6,7 +6,7 @@ def text(message):
     print("")
 
 
-# times table has to be defined at the very least
+# times table has to be defined at the very least they're equal to other variables because they have the same value
 
 
 score = max_value = times_table = 0
@@ -49,4 +49,4 @@ while True:
         max_value = times_table = 0
         print("")
     except ValueError:
-        text("Error, enter a whole number")
+        text("Error, enter a number of any value")

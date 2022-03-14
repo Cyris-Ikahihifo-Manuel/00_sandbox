@@ -47,8 +47,8 @@ def number(message):
 
 
 def text(message):
-    print("""
-    {}""".format(message))
+    print("")
+    print(message)
 
 
 # program running
@@ -57,20 +57,24 @@ def text(message):
 text("Welcome to Calculation Check")
 
 
-# will forever reiterate itself if my
+# will forever reiterate itself as expected
 
 while True:
     num1 = number("Enter a whole number of any value")
     num2 = number("Enter another whole number of any value")
     while True:
-        response = input("Would you like to add, subtract, multiply or divide").lower()
-        if response == "add":
-            add(num1, num2)
-        elif response == "subtract":
-            subtract(num1, num2)
-        elif response == "multiply":
-            multiply(num1, num2)
-        elif response == "divide":
-            divide(num1, num2)
+        print("")
+        response = input("Would you like to add (+), subtract (-), multiply (*) or divide (/)").lower().strip()
+        if response == "add" or response == "+":
+            calculated = add(num1, num2)
+        elif response == "subtract" or response == "-":
+            calculated = subtract(num1, num2)
+        elif response == "multiply" or response == "times" or response == "*":
+            calculated = multiply(num1, num2)
+        elif response == "divide" or response == "/":
+            calculated = divide(num1, num2)
         else:
-            print("Enter either add, subtract, multiply or divide")
+            text("Error enter either +, -, * or /")
+            calculated = False
+        if calculated:
+            break
