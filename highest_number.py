@@ -5,7 +5,7 @@ def highest(a, b):
     if a > b:
         highest_num = a
     else:
-        highest_num = b
+          highest_num = b
     print("The highest number entered is {}".format(highest_num))
 
 

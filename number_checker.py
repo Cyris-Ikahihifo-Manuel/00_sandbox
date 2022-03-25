@@ -20,7 +20,8 @@ def int_check(question):
 	return response
 
 
-# calling the function and testing all values
+# using a for loop to test all data types for my int_check function to see if it would run as expected or if there are
+# any bugs
 
 
 for i in range(4):
