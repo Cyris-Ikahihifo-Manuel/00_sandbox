@@ -1,12 +1,12 @@
-# defining the int_check function which reiterates itself until the user has input a whole number, displays a message
-# based on the input, exits the loop and returns the value
+# defining the int_check function which reiterates itself until the user has input a number, if the input is a
+# "negative" number or the number is a "float" the function displays an error message that says to enter a positive
+# whole number of any value
 
 
 def int_check(question):
     while True:
         response = input(question)
-        num_check = check_input(response)
-        if num_check:
+        if response.isdigit():
             if 1 <= int(response) <= 5:
                 print("")
                 print("You are too young to to de doing this yourself")
@@ -17,43 +17,47 @@ def int_check(question):
                 print("")
                 print("Wow you're old")
             return response
+        else:
+            print("")
+            print("Error, enter a positive whole number of any value")
 
 
-# ask_name function which reiterates itself until the user has input a string.
+# ask_name function which reiterates itself until the user has input a string. If the user has input a "float" or
+# "negative" number the isdigit() should interpret them as a dash and a full stop and so would be classed as strings
 
 
 def ask_name(question):
     while True:
         print("")
-        answer = input(question).lower().title().strip()
-        named = check_input(answer)
-        if named:
+        answer = input(question).title().strip()
+        number = check_input(answer)
+        if not number:
             return answer
 
 
-# defining the str_check function which reiterates itself until the user has input a string, displays an error message
-# if the user has input a digit (- and . are interpreted as a dash and full stop and so should be interpreted as
-# strings)
+# defining the check_input function which outputs a message if the parameter 'response' is a whole number.
+# It will only return the parameter response's boolean if the parameter response is a string (so it will only return
+# the value False). And also if the user has input a digit (- and . are interpreted as a dash and full stop and so
+# should be interpreted as strings)
 
 
 def check_input(response):
     if response.isdigit():
         print("")
-        print("Error, this value isn't a number")
+        print("Error, this value is a number")
     else:
         return response.isdigit()
 
 
 # calling the functions and testing all values
 
-
-for i in range(4):
+for i in range(3):
     age = int_check("How old are you?")
-    name = ask_name("What's your name?")
+name = ask_name("What's your name?")
 
 
 # message is displayed that uses the input of variables age and name
 
 
 print("")
-print("Oh so you're {} years old, {}? Huh?".format(age, name))
+print("Oh so you're {} years old, {}?".format(age, name))
