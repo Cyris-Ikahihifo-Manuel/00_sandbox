@@ -31,7 +31,7 @@ def ask_name(question):
         print("")
         answer = input(question).title().strip()
         number = check_input(answer)
-        if not number:
+        if number == False:
             return answer
 
 
@@ -47,6 +47,9 @@ def check_input(response):
         print("Error, this value is a number")
     else:
         return response.isdigit()
+
+
+age = name = 0
 
 
 # calling the functions and testing all values
