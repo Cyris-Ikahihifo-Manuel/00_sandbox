@@ -93,3 +93,4 @@ if pizzas[4] == "FunFriday":
     pizzas[5] -= 2
 
 print("Your {} crust {} inch {} pizza with {} will cost ${}".format(pizzas[0], pizzas[1], pizzas[3], pizzas[2], pizzas[5]))
+
